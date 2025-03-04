@@ -5,9 +5,7 @@ const pool = mysql.createPool({
     user: process.env.DB_USER || 'root', // Fallback por si no carga .env
     password: process.env.DB_PASSWORD || '', // Fallback
     database: process.env.DB_NAME || 'tienda_virtual',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+    port: 3306
 });
 
 module.exports = pool.promise();
