@@ -54,9 +54,9 @@ const listarProductos = async (req, res) => {
 };
 
 const buscarProductos = async (req, res) => {
-    const { categoria, precioMin, precioMax, nombre, ordenarPor, orden } = req.query;
+    const { categoria_id, precioMin, precioMax, nombre, ordenarPor, orden } = req.query;
     try {
-        const productos = await Producto.buscar({ categoria, precioMin, precioMax, nombre, ordenarPor, orden });
+        const productos = await Producto.buscar({ categoria_id, precioMin, precioMax, nombre, ordenarPor, orden });
         res.json(productos);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error al buscar productos', error: error.message });
