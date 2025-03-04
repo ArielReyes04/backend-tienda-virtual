@@ -12,10 +12,12 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://frontend-tienda-virtual.vercel.app/',
+    origin: 'https://frontend-tienda-virtual.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.use(cors());
+app.options('*', cors());  // Responder a solicitudes OPTIONS
 app.use(bodyParser.json());
 
 app.use('/api/auth', autenticacionRoutes);
