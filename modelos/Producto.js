@@ -58,8 +58,7 @@ class Producto {
              JOIN detalles_pedido dp ON p.id = dp.producto_id
              GROUP BY p.id, p.nombre
              ORDER BY total_vendido DESC
-             LIMIT ?`,
-            [limite]
+             LIMIT 5`
         );
         return filas;
     }
